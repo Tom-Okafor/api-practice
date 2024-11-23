@@ -12,7 +12,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    outline: 1px solid var(--color5);
 }
 body {
     height: 100vh;
@@ -60,4 +59,19 @@ button {
     border-radius: 5px;
     padding: 5px;
     height: 40px;
+}
+
+.message {
+    border: var(--border);
+    padding: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.message p {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    color: var(--color5);
 }
