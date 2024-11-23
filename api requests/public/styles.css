@@ -46,6 +46,7 @@ select {
     color: var(--color3);
     border: var(--border);
     border-radius: 5px;
+    outline: none;
 }
 
 option {
@@ -59,19 +60,49 @@ button {
     border-radius: 5px;
     padding: 5px;
     height: 40px;
+    width: 40px;
+}
+
+select:focus {
+    border-color: var(--color4);
 }
 
 .message {
     border: var(--border);
     padding: 20px;
     height: 150px;
-    width: 150px;
+    width: clamp(200px, 75vw, 700px);
     border-radius: 15px;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color4);
 }
 
 .message p {
     font-size: 0.9rem;
     line-height: 1.3rem;
     color: var(--color5);
+}
+
+.error {
+    padding: 10px;
+    border: var(--border);
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.error p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color4);
+    line-height: 1.3rem;
+    word-spacing: 2px;
 }

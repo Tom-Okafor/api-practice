@@ -12,6 +12,7 @@
     <form action="/activity" method="post">
       <select name="type">
         <option value="random">Activity</option>
+        <option value="random">Any Activity</option>
         <option value="education">Education</option>
         <option value="recreational">Recreational</option>
         <option value="social">Social</option>
@@ -37,9 +38,35 @@
       
       <button type="submit">Go!</button>
     </form>
+    
+    <%if (locals.singleActivity) {%>
+    
     <section class="message">
       <p><%=activity.activity%></p>
+      <div class="details">
+      <p><%=activity.type%></p>
+      <p><%=activity.participants%></p>
+      </div>
     </section>
-    <section></section>
+   <% }%>
+    
+    <%if (locals.activity) {%>
+    
+    <section class="message">
+    <%let index = Math.floor(Math.random() * activity.length)%>
+      <p><%=activity[index].activity%></p>
+      <div class="details">
+      <p><%=activity[index].type%></p>
+      <p><%=activity[index].participants%></p>
+      </div>
+    </section>
+   <% }%>
+    
+   <% if (locals.error) {%>
+       <section class="error">
+       <p><%=error%></p>
+       </section>
+       
+   <%} %>
   </body>
 </html>
