@@ -27,16 +27,19 @@
    <h2>Pick your favourite taco ingredient 👆</h2>
   <% }%>
     
-    <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
-
+  
+<%if (locals.chosenRecipe) {%>
     <h3>Ingredients:</h3>
     <ul id="ingredientsList">
-      <li>Protein name, protein preparation</li>
-      <li>Salsa name</li>
-      <li>Every other topping</li>
+      <li><%=chosenRecipe.ingredients.protein.name%>, <%=chosenRecipe.ingredients.protein.preparation%></li>
+      <li><%=chosenRecipe.ingredients.salsa.name%></li>
+      <%chosenRecipe.ingredients.toppings.forEach((topping) => { %>
+            <li><%=topping.quantity%> of <%=topping.name%></li>
+            
+     <% })%>
     </ul>
 
-
+<%}%>
 
   </div>
 </body>
