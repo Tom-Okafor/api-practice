@@ -11,8 +11,13 @@ APP.set("views", `${dirname(fileURLToPath(import.meta.url))}/views/`);
 APP.use(express.static(`${dirname(fileURLToPath(import.meta.url))}/public/`));
 
 APP.get("/", async (req, res) => {
-    const DATA = await axios.get("https://bored-api.appbrewery.com/random");
-    res.render("index.ejs");
+    try {
+        /*const DATA = await axios.get("https://bored-api.appbrewery.com/random");*/
+        res.render("index.ejs");
+    } catch (e) {
+        console.error("Failed to make request:", error.message);
+        res.status(509).send("Failed to fetch activity. Please, try again.")
+    }
 });
 
 APP.listen(PORT, err => {
